@@ -1,0 +1,5 @@
+Use the command of
+  tail -f /var/log/messages
+to get the kernel messages.
+It will firstly output the first 10 lines of kernel messages.
+Then it will output the new content when there is new data appended.

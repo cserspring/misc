@@ -1,4 +1,4 @@
-obj-m += get_random_num.o
+obj-m += get_random_num.o helloworld.o
 KDIR = $(shell uname -r)
 PWD = $(shell pwd)
  

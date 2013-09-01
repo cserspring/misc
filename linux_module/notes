@@ -1,0 +1,12 @@
+/usr/src/linux-headers-2.6.32-49/include/linux
+
+7th chapter    kernel concurrency
+
+Two underscores means "If you call this function, be sure you know what you are
+doing".
+
+There really is no need for floating point in kernel code, the extra overhead is
+not worthwhile.
+
+obj-m := module.o
+module-objs := file1.o file2.o
