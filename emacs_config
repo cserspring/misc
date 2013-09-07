@@ -1,0 +1,43 @@
+;;no backup
+(setq make-backup-files nil)
+
+;;to paste
+(setq x-select-enable-clipboard t)
+
+;;linum-mode
+(setq linum-format 
+   (lambda (line) 
+  (propertize 
+   (format (let ((w (length (number-to-string 
+        (count-lines (point-min) (point-max)))))) 
+      (concat "%" (number-to-string w) "d ")) line) 'face 'linum))) 
+(defun my-linum-on ()   ; linum should turn off in non-editor buffer 
+  (unless (or (minibufferp) 
+     (equal (string-match "\\*.*\\*" (buffer-name (current-buffer))) 0)) 
+    (linum-mode 1))) 
+(define-globalized-minor-mode my-global-linum-mode linum-mode my-linum-on) 
+(my-global-linum-mode 1)
+
+;;show-paren-mode
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+
+;;eshell中输入cls清空eshell
+(defun eshell/cls ()
+"Clears the shell buffer ala Unix's clear or DOS' cls"
+(interactive)
+;; the shell prompts are read-only, so clear that for the duration
+(let ((inhibit-read-only t))
+;; simply delete the region
+(delete-region (point-min) (point-max))))
+
+;;display column
+(setq column-number-mode t)
+
+;;写C程序的indent
+(setq-default c-basic-offset 4
+                  tab-width 4
+                  indent-tabs-mode t)
+
+;;go-to line
+(define-key global-map "\C-x\C-g" 'goto-line)
