@@ -1,0 +1,21 @@
+PageCount.jar          --- The executable file which can be executed on Linux
+                           and Windows platform under JRE 1.7 environment.
+AnalyzePageResult.java --- The source code file.
+README                 --- This file.
+
+
+1. In the site of www.shopping.com, the number of products is not always 40. 
+   Sometimes, in the first page, the number of products is 41, and sometimes, 
+   it is 38. So in order to get the total number of products in a search, we 
+   need to get the number of products in every page and sum them up.
+   As in every page, every product has a identifier of "quickLookItem-#", we 
+   can count the number of "quickLookItem-#" to get the number of products in
+   a page.
+
+2. In every page, we can get the information of the product by analyzing the 
+   content of the current html page.
+   For example,
+   we can get the price from the "itemPrice" field,
+   we can get the vendor from the "newMerchantName" field,
+   we can get the title from the "quickLookGridItemFullName" filed,
+   we can get the shipping price from the "taxShippingArea" field.
