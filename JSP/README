@@ -1,0 +1,1 @@
+sed -i "s/originalstr/newstr/g" `grep "originalstr" -rl ~/program/pebbles/JSP`

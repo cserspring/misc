@@ -1,0 +1,16 @@
+h2 {
+	text-align: center;
+}
+
+h3 {
+	text-align: center;
+}
+
+.form-label {
+	font-size: x-large;
+}
+
+table.center {
+	margin-left: auto;
+	margin-right: auto;
+}
