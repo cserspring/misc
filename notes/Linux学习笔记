@@ -1,0 +1,22 @@
+安装.deb文件命令：dpkg -i filename.deb
+解压缩命令：	tar   -zxvf   filename.tar.gz
+压缩命令：	tar   -zcvf   filename.tar.gz  file
+端口查看命令：	netstat -a / netstat -ap / netstat -ntlp
+uname -a　　＃使用这个命令可以查看当前系统使用的内核。 
+dpkg --get-selections|grep linux ＃列出当前内核。带image的则是已经安装的内核
+用以下命令卸载：sudo apt-get remove linux-image-2.6.24-11-generic ＃其中 linux-image-2.6.24-11-generic 为版本号
+之后 sudo update-grub
+
+passwd用来修改密码
+
+在终端输入bc，按回车键，会进入bc状态，可以设置scale=3
+也可以在终端进行输入echo "scale=3;3/4" | bc
+
+用tar -xvjf 命令解压.tar.bz2文件
+
+针对无线网络
+sudo modprobe -r iwlwifi
+sudo modprobe iwlwifi 11n_disable=1
+
+任务栏添加删除快捷方式
+In gnome classic you must press both the Alt & Super keys at the same time while right-clicking on the panel/applet you wish to edit, move, or remove. (The Super key is typically the one with the Windows logo).
