@@ -1,0 +1,1 @@
+dup2(connfd, STDOUT_FILENO);   /*STDOUT_FILENO(1) 被重新指向connfd*/
