@@ -5,6 +5,16 @@
 uname -a　　＃使用这个命令可以查看当前系统使用的内核。 
 dpkg --get-selections|grep linux ＃列出当前内核。带image的则是已经安装的内核
 用以下命令卸载：sudo apt-get remove linux-image-2.6.24-11-generic ＃其中 linux-image-2.6.24-11-generic 为版本号
+
+This will remove ALL versions but the current:
+
+sudo apt-get remove --purge $(dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d')
+Or you can run this command as a cron job, if you want this done automatically without confirmation:
+
+dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+However this is not wise, as you should ALWAYS have an old kernel or two to fall back to 
+(just in case the new one doesn't work with your system). At the very least, if you've just upgraded the kernel, 
+reboot before deleting the older versions. Read on for a safer, more manual way.
 之后 sudo update-grub
 
 passwd用来修改密码
